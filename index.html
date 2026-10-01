@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio profesional de Mateo Botero, diseñador gráfico y fundador de Maxcreativos Publicidad y Señalización.">
+  <title>Mateo Botero | Diseño que se nota</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#111113; --paper:#f6f1e8; --soft:#d8d0c4; --muted:#817a72; --pink:#f23acb; --cyan:#2dd9e8; --amber:#ffb52e; --panel:#1c1b20; --line:rgba(246,241,232,.16); --mx:50%; --my:25%; --bg-hue:320; --cursor-scale:1; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; background:hsl(var(--bg-hue) 18% 6%); }
+    body { overflow-x:hidden; color:var(--paper); background:radial-gradient(circle at 50% 0%,hsl(var(--bg-hue) 75% 35% / .16),transparent 42%),hsl(var(--bg-hue) 18% 6%); font-family:Manrope,sans-serif; line-height:1.55; transition:background .45s ease; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:-2; opacity:.48; background:repeating-linear-gradient(0deg, transparent 0 31px, rgba(255,255,255,.026) 32px),repeating-linear-gradient(90deg, transparent 0 63px, rgba(255,255,255,.018) 64px),radial-gradient(circle at 20% 30%,hsl(var(--bg-hue) 90% 55% / .08),transparent 28%); background-size:auto,auto,140% 140%; animation:texture-drift 22s linear infinite; }
+    body::after { content:""; position:fixed; inset:0; pointer-events:none; z-index:-1; background:radial-gradient(circle 360px at var(--mx) var(--my),hsl(var(--bg-hue) 85% 65% / .13),transparent 72%); transition:background .25s ease; }
+    a { color:inherit; text-decoration:none; } img { max-width:100%; display:block; } button,input,textarea { font:inherit; } button { cursor:pointer; }
+    h1,h2,h3 { font-family:"Space Grotesk",sans-serif; line-height:1.04; letter-spacing:-.04em; }
+    .wrap { width:min(1180px,calc(100% - 40px)); margin:auto; }
+    .topbar { position:fixed; inset:0 0 auto; z-index:20; padding:16px 0; border-bottom:1px solid var(--line); background:rgba(17,17,19,.82); backdrop-filter:blur(16px); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font-family:"Space Grotesk"; font-weight:700; font-size:20px; letter-spacing:-.04em; }
+    .brand span { color:var(--pink); }
+    .nav-links { display:flex; gap:6px; list-style:none; }
+    .nav-links a { display:block; padding:8px 12px; color:var(--soft); font-size:13px; font-weight:700; border:1px solid transparent; border-radius:6px; transition:.2s; }
+    .nav-links a:hover { color:var(--paper); border-color:var(--line); }
+    .nav-actions { display:flex; align-items:center; gap:14px; }
+    .light-toggle,.menu-toggle { color:var(--paper); background:none; border:1px solid var(--line); border-radius:6px; }
+    .light-toggle { display:flex; gap:8px; align-items:center; padding:8px 10px; color:var(--soft); font-size:11px; }
+    .light-toggle i { width:8px; height:8px; border-radius:50%; background:var(--amber); box-shadow:0 0 9px var(--amber); }
+    .menu-toggle { display:none; width:38px; height:38px; font-size:20px; }
+    .progress { position:absolute; bottom:-2px; left:0; height:2px; width:0; background:var(--pink); box-shadow:0 0 8px var(--pink); }
+    .hero { min-height:100vh; display:grid; align-items:center; padding:150px 0 90px; }
+    .hero-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:70px; align-items:center; }
+    .eyebrow { margin-bottom:15px; color:var(--cyan); font:500 12px/1.2 "DM Mono",monospace; letter-spacing:.1em; text-transform:uppercase; }
+    .hero h1 { max-width:760px; font-size:clamp(48px,7vw,92px); }
+    .highlight { color:var(--pink); text-shadow:0 0 10px rgba(242,58,203,.75),0 0 35px rgba(242,58,203,.32); }
+    .hero-copy { max-width:580px; margin-top:24px; color:var(--soft); font-size:18px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:0 20px; color:var(--ink); background:var(--paper); border:1px solid var(--paper); border-radius:6px; font-weight:800; font-size:14px; transition:transform .2s,box-shadow .2s; }
+    .btn:hover { transform:translateY(-3px); box-shadow:0 10px 25px rgba(0,0,0,.28); }
+    .btn.outline { color:var(--paper); background:transparent; border-color:var(--line); }
+    .btn.pink { color:var(--paper); background:var(--pink); border-color:var(--pink); }
+    .portrait-wrap { position:relative; width:min(360px,80vw); margin:auto; }
+    .portrait-wrap::before { content:""; position:absolute; inset:18px -18px -18px 18px; border:1px solid var(--cyan); border-radius:8px; transform:rotate(4deg); opacity:.75; }
+    .portrait { position:relative; aspect-ratio:4/5; overflow:hidden; border:8px solid var(--panel); border-radius:8px; background:linear-gradient(145deg,#153b41,#292027 52%,#69365c); box-shadow:0 20px 55px rgba(0,0,0,.45); animation:portrait-float 7s ease-in-out infinite; }
+    .portrait img { width:100%; height:100%; object-fit:cover; }
+    .photo-fallback { height:100%; display:grid; place-items:center; padding:28px; color:var(--soft); text-align:center; font-family:"DM Mono"; font-size:12px; background:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 2px,transparent 2px 12px); }
+    .initials { position:absolute; left:18px; bottom:14px; color:var(--cyan); font:700 42px "Space Grotesk"; text-shadow:0 0 14px var(--cyan); }
+    .stats { display:flex; flex-wrap:wrap; gap:34px; padding:22px 0; border-block:1px solid var(--line); color:var(--soft); }
+    .stats strong { display:block; color:var(--paper); font:700 24px "Space Grotesk"; }
+    .stats span { font-size:11px; text-transform:uppercase; letter-spacing:.08em; }
+    section { padding:110px 0; }
+    .section-head { display:flex; justify-content:space-between; gap:30px; align-items:end; margin-bottom:42px; }
+    .section-head h2 { font-size:clamp(34px,5vw,62px); }
+    .section-note { max-width:310px; color:var(--muted); font-size:14px; }
+    .about-grid,.contact-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:start; }
+    .about-photo { aspect-ratio:1; overflow:hidden; border:1px solid var(--line); border-radius:8px; background:linear-gradient(145deg,#273d3c,#472d49); }
+    .about-photo img { width:100%; height:100%; object-fit:cover; }
+    .copy { max-width:640px; color:var(--soft); font-size:17px; }
+    .copy + .copy { margin-top:16px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:27px; }
+    .chip { padding:9px 12px; border:1px solid var(--line); border-radius:5px; color:var(--soft); background:rgba(255,255,255,.025); font-size:12px; }
+    .timeline { border-left:1px solid var(--cyan); padding-left:28px; }
+    .timeline-item { position:relative; padding:0 0 48px; }
+    .timeline-item:last-child { padding-bottom:0; }
+    .timeline-item::before { content:""; position:absolute; width:12px; height:12px; left:-35px; top:5px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px var(--cyan); }
+    .date { color:var(--cyan); font:500 12px "DM Mono"; }
+    .timeline h3 { margin-top:8px; font-size:27px; letter-spacing:-.02em; }
+    .company { margin-top:4px; color:var(--muted); font-weight:700; }
+    .timeline p { max-width:630px; margin-top:10px; color:var(--soft); }
+    .skills { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .skill { display:flex; gap:10px; align-items:center; padding:16px; border:1px solid var(--line); border-radius:6px; background:rgba(255,255,255,.025); font-size:14px; font-weight:700; }
+    .skill::before { content:""; width:8px; height:8px; flex:0 0 auto; border-radius:50%; background:var(--amber); box-shadow:0 0 10px var(--amber); }
+    .projects { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .project { overflow:hidden; border:1px solid var(--line); border-radius:8px; background:var(--panel); transition:transform .25s,border-color .25s; }
+    .project:hover { transform:translateY(-7px); border-color:var(--cyan); }
+    .project-image { position:relative; aspect-ratio:4/3; overflow:hidden; background:linear-gradient(135deg,#3a162f,#172f35); }
+    .project-image img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+    .project:hover img { transform:scale(1.06); }
+    .project-image::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.65)); pointer-events:none; }
+    .project-body { padding:18px; }
+    .project-tag { color:var(--pink); font:500 11px "DM Mono"; text-transform:uppercase; }
+    .project h3 { margin-top:7px; font-size:21px; letter-spacing:-.02em; }
+    .project p { margin-top:7px; color:var(--muted); font-size:13px; }
+    .project-open { margin-top:14px; padding:0; color:var(--cyan); background:none; border:0; font-size:13px; font-weight:800; }
+    .contact-title { font-size:clamp(40px,6vw,78px); }
+    .contact-info { margin-top:28px; color:var(--soft); }
+    .contact-info a { display:block; width:max-content; max-width:100%; margin-top:10px; border-bottom:1px solid var(--soft); font-weight:700; }
+    form { display:grid; gap:12px; }
+    input,textarea { width:100%; padding:15px; color:var(--paper); background:var(--panel); border:1px solid var(--line); border-radius:5px; outline:0; }
+    input:focus,textarea:focus { border-color:var(--cyan); box-shadow:0 0 0 2px rgba(45,217,232,.12); }
+    textarea { min-height:140px; resize:vertical; }
+    footer { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; padding:28px 0 36px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    footer nav { display:flex; gap:18px; }
+    footer a:hover { color:var(--paper); }
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .7s ease,transform .7s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    .modal { position:fixed; inset:0; z-index:30; display:none; place-items:center; padding:20px; background:rgba(0,0,0,.78); }
+    .modal.open { display:grid; }
+    .modal-card { position:relative; width:min(680px,100%); padding:30px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .modal-close { position:absolute; top:12px; right:12px; width:32px; height:32px; color:var(--paper); background:none; border:1px solid var(--line); border-radius:5px; }
+    .modal-card h2 { margin:8px 0; font-size:36px; }
+    .modal-card p { color:var(--soft); }
+    body.lights-off { --pink:#9b7895; --cyan:#738e91; --amber:#a28758; }
+    body.lights-off .highlight { text-shadow:none; }
+    @media (max-width:800px) { .nav-links { display:none; position:absolute; top:68px; left:20px; right:20px; padding:12px; flex-direction:column; border:1px solid var(--line); border-radius:6px; background:var(--panel); } .nav-links.open { display:flex; } .menu-toggle { display:block; } .light-toggle span { display:none; } .hero-grid,.about-grid,.contact-grid { grid-template-columns:1fr; gap:45px; } .hero { padding-top:130px; } .portrait-wrap { order:-1; } .section-head { display:block; } .section-note { margin-top:14px; } .skills { grid-template-columns:repeat(2,1fr); } .projects { grid-template-columns:1fr; } }
+    @media (max-width:480px) { .wrap { width:min(100% - 28px,1180px); } section { padding:78px 0; } .hero h1 { font-size:48px; } .stats { gap:18px; } .skills { grid-template-columns:1fr; } footer { display:block; } footer nav { margin-top:14px; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; } .reveal { opacity:1; transform:none; } }
+    /* Editorial scroll layer */
+    body { font-family:"DM Sans",sans-serif; --scroll:0; }
+    .cursor-orb { position:fixed; z-index:2; top:0; left:0; width:230px; height:230px; pointer-events:none; border:1px solid hsl(var(--bg-hue) 90% 70% / .4); border-radius:50%; opacity:.55; background:radial-gradient(circle,hsl(var(--bg-hue) 90% 68% / .5),hsl(var(--bg-hue) 90% 60% / .16) 34%,transparent 70%); filter:blur(10px); mix-blend-mode:screen; transform:translate(-50%,-50%) scale(var(--cursor-scale)); transition:opacity .3s ease,border-color .3s ease; }
+    .cursor-orb::before { content:""; position:absolute; inset:calc(50% - 5px); border-radius:50%; background:var(--paper); box-shadow:0 0 18px 5px hsl(var(--bg-hue) 90% 70% / .9); filter:blur(1px); }
+    .cursor-orb::after { content:""; position:absolute; inset:20px; border:1px dashed hsl(var(--bg-hue) 90% 70% / .6); border-radius:50%; animation:cursor-spin 7s linear infinite; }
+    body:has(.modal.open) .cursor-orb { opacity:.08; }
+    h1,h2,h3,.brand { font-family:"Syne",sans-serif; letter-spacing:-.055em; }
+    .topbar { padding:12px 0; }
+    .nav-links a { position:relative; overflow:hidden; }
+    .nav-links a::before { content:""; position:absolute; left:12px; right:12px; bottom:4px; height:2px; background:var(--pink); transform:translateX(-120%); transition:transform .3s ease; }
+    .nav-links a.active::before,.nav-links a:hover::before { transform:none; }
+    .side-rail { position:fixed; z-index:10; left:22px; top:50%; display:grid; gap:13px; transform:translateY(-50%); }
+    .rail-dot { position:relative; width:8px; height:8px; border:1px solid var(--muted); border-radius:50%; background:transparent; transition:.3s; }
+    .rail-dot::after { content:attr(data-label); position:absolute; left:17px; top:-6px; width:max-content; color:var(--muted); font:10px "DM Mono",monospace; opacity:0; transform:translateX(-6px); transition:.3s; pointer-events:none; }
+    .rail-dot:hover::after,.rail-dot.active::after { opacity:1; transform:none; }
+    .rail-dot.active { border-color:var(--cyan); background:var(--cyan); box-shadow:0 0 13px var(--cyan); }
+    .hero { position:relative; min-height:calc(100vh - 30px); }
+    .hero-grid { grid-template-columns:1fr .72fr; gap:90px; }
+    .hero h1 { max-width:700px; font-size:clamp(46px,6.4vw,88px); text-wrap:balance; }
+    .hero-copy { max-width:500px; font-size:17px; }
+    .hero::after { content:"SCROLL / DESCUBRE"; position:absolute; right:0; bottom:24px; color:var(--muted); font:10px "DM Mono",monospace; letter-spacing:.16em; writing-mode:vertical-rl; animation:breathe 2.2s ease-in-out infinite; }
+    .portrait-wrap { transform:translateY(calc(var(--scroll) * -28px)); transition:transform .1s linear; }
+    .portrait { border-radius:40% 8px 8px 8px; }
+    .stats { position:relative; margin-top:-18px; padding:26px 0; }
+    .stats::before { content:"/ 01"; position:absolute; top:-25px; right:0; color:var(--pink); font:11px "DM Mono",monospace; }
+    section { position:relative; padding:145px 0; }
+    section::before { content:attr(id); position:absolute; top:42px; left:0; color:var(--muted); font:10px "DM Mono",monospace; letter-spacing:.16em; text-transform:uppercase; }
+    .section-head { margin-bottom:58px; }
+    .section-head h2 { max-width:740px; font-size:clamp(38px,5.5vw,76px); text-wrap:balance; }
+    .about-grid { grid-template-columns:.55fr 1.45fr; gap:100px; }
+    .about-photo { position:sticky; top:110px; border-radius:8px 38% 8px 8px; }
+    .timeline { max-width:820px; margin-left:auto; padding-left:42px; }
+    .timeline-item { padding-bottom:70px; }
+    .timeline-item::before { width:9px; height:9px; left:-47px; }
+    .skills { grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+    .skill { min-height:76px; border-width:0 1px 1px 0; border-radius:0; background:transparent; }
+    .skill:hover { color:var(--ink); background:var(--cyan); }
+    #trabajo { min-height:calc(100vh + 1600px); overflow:clip; }
+    #trabajo .section-head { position:relative; z-index:1; }
+    .projects { position:sticky; top:132px; display:flex; width:max-content; gap:18px; align-items:stretch; }
+    .projects .project { display:block; flex:0 0 clamp(260px,28vw,350px); width:clamp(260px,28vw,350px); }
+    .projects .project:first-child { grid-row:auto; }
+    .projects .project-image,.projects .project:nth-child(2) .project-image,.projects .project:nth-child(3) .project-image { aspect-ratio:4/3; }
+    .project:hover { transform:translateY(-4px) rotate(-.4deg); }
+    .contact-grid { align-items:end; }
+    .contact-title { max-width:700px; font-size:clamp(48px,8vw,105px); }
+    .whatsapp-float { position:fixed; z-index:25; left:22px; bottom:22px; display:flex; align-items:center; gap:9px; padding:11px 14px 11px 11px; color:#071b10; background:#25d366; border:1px solid rgba(255,255,255,.55); border-radius:999px; box-shadow:0 10px 30px rgba(0,0,0,.35),0 0 22px rgba(37,211,102,.35); font-size:12px; font-weight:800; transition:transform .25s,box-shadow .25s; }
+    .whatsapp-float:hover { transform:translateY(-4px) scale(1.03); box-shadow:0 14px 34px rgba(0,0,0,.4),0 0 30px rgba(37,211,102,.55); }
+    .whatsapp-icon { display:grid; place-items:center; width:24px; height:24px; color:#25d366; background:#071b10; border-radius:50%; font-size:16px; }
+    .qr-modal { position:fixed; inset:0; z-index:40; display:none; place-items:center; padding:20px; background:rgba(0,0,0,.78); }
+    .qr-modal.open { display:grid; }
+    .qr-card { position:relative; width:min(370px,100%); padding:24px; color:var(--ink); background:var(--paper); border-radius:10px; text-align:center; box-shadow:0 20px 70px rgba(0,0,0,.5); }
+    .qr-card img { width:100%; margin:12px auto 0; border-radius:5px; }
+    .qr-card strong { display:block; font:700 25px "Syne",sans-serif; }
+    .qr-card p { margin-top:5px; color:#5f5b56; font-size:13px; }
+    .qr-close { position:absolute; top:10px; right:10px; width:30px; height:30px; color:var(--ink); background:transparent; border:1px solid rgba(17,17,19,.2); border-radius:50%; }
+    @keyframes breathe { 0%,100% { opacity:.45; transform:translateY(0); } 50% { opacity:1; transform:translateY(8px); } }
+    @keyframes portrait-float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-5px); } }
+    @keyframes texture-drift { from { background-position:0 0,0 0,0 0; } to { background-position:0 64px,64px 0,18% 12%; } }
+    @keyframes cursor-spin { to { transform:rotate(360deg); } }
+    @media (max-width:1000px) { .side-rail { left:10px; } .hero-grid { gap:45px; } }
+    @media (max-width:800px) { .side-rail { display:none; } .hero { min-height:auto; } .hero::after { right:6px; bottom:12px; } section::before { top:26px; } section { padding:105px 0; } .hero-grid,.about-grid,.contact-grid { grid-template-columns:1fr; } .about-grid { gap:45px; } .about-photo { position:relative; top:auto; } .projects { top:100px; } .projects .project { flex-basis:78vw; width:78vw; } .whatsapp-float { left:14px; bottom:14px; } }
+    @media (max-width:560px) { .skills { grid-template-columns:repeat(2,1fr); } .cursor-orb { display:none; } }
+    @media (pointer:coarse) { .cursor-orb { display:none; } }
+    @media (prefers-reduced-motion:reduce) { .portrait { animation:none !important; } }
+  </style>
+</head>
+<body>
+  <div class="cursor-orb" aria-hidden="true"></div>
+  <button class="whatsapp-float" id="whatsappButton" type="button" aria-label="Abrir código QR de WhatsApp"><span class="whatsapp-icon">◔</span><span>WhatsApp</span></button>
+  <nav class="side-rail" aria-label="Navegación por secciones">
+    <a class="rail-dot active" href="#inicio" data-label="inicio" aria-label="Ir a inicio"></a>
+    <a class="rail-dot" href="#sobre-mi" data-label="sobre mí" aria-label="Ir a sobre mí"></a>
+    <a class="rail-dot" href="#experiencia" data-label="trayectoria" aria-label="Ir a trayectoria"></a>
+    <a class="rail-dot" href="#servicios" data-label="servicios" aria-label="Ir a servicios"></a>
+    <a class="rail-dot" href="#trabajo" data-label="trabajo" aria-label="Ir a trabajo"></a>
+    <a class="rail-dot" href="#contacto" data-label="contacto" aria-label="Ir a contacto"></a>
+  </nav>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#inicio">MB<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre-mi">Sobre mí</a></li><li><a href="#experiencia">Experiencia</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#trabajo">Trabajo</a></li><li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-actions"><button class="light-toggle" id="lightToggle" type="button" aria-pressed="false"><i></i><span>Luces</span></button><button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button></div>
+    </div>
+    <div class="progress" id="progress"></div>
+  </header>
+
+  <main>
+    <section class="hero wrap" id="inicio">
+      <div class="hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">Diseñador gráfico · Valledupar, Colombia</div>
+          <h1>Diseño y señalización que <span class="highlight">encienden</span> tu marca.</h1>
+          <p class="hero-copy">Creo identidades, campañas y espacios que hacen que una marca se reconozca tanto en la pantalla como en la calle.</p>
+          <div class="actions"><a class="btn pink" href="#trabajo">Ver proyectos <span>↓</span></a><a class="btn outline" href="#contacto">Hablemos</a></div>
+        </div>
+        <div class="portrait-wrap reveal">
+          <div class="portrait"><img src="assets/FOTO 2.jpeg" alt="Retrato de Mateo Botero" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><div class="photo-fallback" hidden>Agrega tu foto en<br><strong>assets/mateo-principal.jpg</strong></div><div class="initials">MB</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap stats reveal"><div><strong>3+</strong><span>Años de experiencia</span></div><div><strong>40+</strong><span>Proyectos entregados</span></div><div><strong>10+</strong><span>Marcas atendidas</span></div><div><strong>360°</strong><span>Visión de marca</span></div></div>
+
+    <section class="wrap" id="sobre-mi"><div class="about-grid"><div class="about-photo reveal"><img src="assets/WhatsApp Image 2026-09-16 at 11.11.37 PM.jpeg" alt="Mateo Botero trabajando" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><div class="photo-fallback" hidden>Agrega una foto de trabajo en<br><strong>assets/mateo-estudio.jpg</strong></div></div><div class="reveal"><div class="eyebrow">Sobre mí</div><h2>Estrategia visual con propósito.</h2><p class="copy" style="margin-top:22px">Soy profesional en Diseño Gráfico por Areandina y fundador de Maxcreativos Publicidad y Señalización. Mi trabajo conecta estrategia, diseño y producción para que cada punto de contacto de una marca hable el mismo idioma.</p><p class="copy">He liderado equipos creativos y coordinado campañas con foco en coherencia visual, presencia local y resultados medibles.</p><div class="chips"><span class="chip">Diseñador & fundador</span><span class="chip">Valledupar, Cesar</span><span class="chip">Areandina · 2026</span></div></div></div></section>
+
+    <section class="wrap" id="experiencia"><div class="section-head reveal"><div><div class="eyebrow">Trayectoria</div><h2>Cómo llegué hasta aquí.</h2></div><p class="section-note">Una línea de tiempo breve, con el foco puesto en lo que puedo aportar a tu equipo.</p></div><div class="timeline"><article class="timeline-item reveal"><div class="date">2023 — HOY</div><h3>Diseñador Gráfico</h3><div class="company">Empresa del sector energía solar</div><p>Piezas de comunicación, material de marca y apoyo visual para campañas internas y comerciales.</p></article><article class="timeline-item reveal"><div class="date">2021 — HOY</div><h3>Fundador & Director Creativo</h3><div class="company">Maxcreativos Publicidad y Señalización</div><p>Identidad, campañas y señalización para negocios locales, desde la idea hasta la instalación.</p></article><article class="timeline-item reveal"><div class="date">FEB 2026</div><h3>Profesional en Diseño Gráfico</h3><div class="company">Areandina</div><p>Formación profesional con enfoque en estrategia de marca y comunicación visual.</p></article></div></section>
+
+    <section class="wrap" id="servicios"><div class="section-head reveal"><div><div class="eyebrow" style="color:var(--amber)">Lo que hago</div><h2>Una idea, muchos puntos de contacto.</h2></div></div><div class="skills reveal"><div class="skill">Identidad de marca</div><div class="skill">Campañas digitales</div><div class="skill">Señalización & P.O.P.</div><div class="skill">Contenido para redes</div><div class="skill">Visualización 3D</div><div class="skill">Consultoría de marca</div><div class="skill">Adobe Illustrator</div><div class="skill">Marketing digital</div><div class="skill">Liderazgo creativo</div></div></section>
+
+    <section class="wrap" id="trabajo"><div class="section-head reveal"><div><div class="eyebrow">Selección de trabajo</div><h2>Proyectos que se hacen notar.</h2></div><p class="section-note">Reemplaza las tres imágenes de muestra por tus proyectos reales en la carpeta <strong>assets</strong>.</p></div><div class="projects"><article class="project reveal"><div class="project-image"><img src="assets/male-mechanic-working-shop-car.jpg" alt="Proyecto de identidad de marca" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><div class="photo-fallback" hidden>assets/proyecto-01.jpg</div></div><div class="project-body"><div class="project-tag">Identidad de marca · 2024</div><h3>Rebrand Empresa Retail</h3><p>Sistema visual para una marca con presencia física y digital.</p><button class="project-open" data-title="Rebrand Empresa Retail" data-text="Un sistema de identidad pensado para sostener campañas, piezas digitales y señalización en punto de venta.">Ver ficha →</button></div></article><article class="project reveal"><div class="project-image"><img src="assets/front-view-chocolate-dessert-glass-with-straw.jpg" alt="Proyecto de señalización" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><div class="photo-fallback" hidden>assets/proyecto-02.jpg</div></div><div class="project-body"><div class="project-tag" style="color:var(--cyan)">P.O.P. & producción · 2024</div><h3>Señalización Punto de Venta</h3><p>Diseño y producción de material para orientar y atraer.</p><button class="project-open" data-title="Señalización Punto de Venta" data-text="Diseño aplicado a un espacio comercial: jerarquía, recorrido y presencia de marca en el lugar de decisión.">Ver ficha →</button></div></article><article class="project reveal"><div class="project-image"><img src="assets/young-car-repairman-talking-with-his-coworker-while-checking-engine-performance-with-diagnostic-tools-auto-repair-shop.jpg" alt="Proyecto de campaña digital" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><div class="photo-fallback" hidden>assets/proyecto-03.jpg</div></div><div class="project-body"><div class="project-tag" style="color:var(--amber)">Campaña digital · 2023</div><h3>Campaña de Lanzamiento</h3><p>Concepto, piezas y dirección visual para salir al mercado.</p><button class="project-open" data-title="Campaña de Lanzamiento" data-text="Una campaña construida alrededor de un concepto claro, adaptable a redes, pauta y piezas de lanzamiento.">Ver ficha →</button></div></article></div></section>
+
+    <section class="wrap" id="contacto"><div class="contact-grid"><div class="reveal"><div class="eyebrow" style="color:var(--amber)">Contacto</div><h2 class="contact-title">Hagamos algo <span class="highlight">que se note.</span></h2><div class="contact-info"><a href="mailto:hola@maxcreativos.com">hola@maxcreativos.com</a><a href="tel:+573000000000">+57 300 000 0000</a><a href="https://www.behance.net/gallery/199711649/Portafolio-Profesional" target="_blank" rel="noreferrer">Ver Behance ↗</a></div></div><form class="reveal" id="contactForm"><input name="nombre" type="text" placeholder="Tu nombre" aria-label="Tu nombre" required><input name="email" type="email" placeholder="Tu email" aria-label="Tu email" required><input name="asunto" type="text" placeholder="Asunto del proyecto" aria-label="Asunto del proyecto"><textarea name="mensaje" placeholder="Cuéntame de tu proyecto..." aria-label="Cuéntame de tu proyecto" required></textarea><button class="btn pink" type="submit">Preparar mensaje <span>↗</span></button></form></div></section>
+  </main>
+
+  <footer class="wrap"><div>© 2026 Mateo Botero · Diseñador Gráfico & Estratega de Marca</div><nav><a href="https://www.behance.net/gallery/199711649/Portafolio-Profesional" target="_blank" rel="noreferrer">Behance</a><a href="#">LinkedIn</a><a href="#">Instagram</a></nav></footer>
+  <div class="qr-modal" id="qrModal" role="dialog" aria-modal="true" aria-labelledby="qrTitle"><div class="qr-card"><button class="qr-close" id="qrClose" type="button" aria-label="Cerrar código QR">×</button><strong id="qrTitle">Hablemos por WhatsApp</strong><p>Escanea este código para agregar a Mateo.</p><img src="assets/whatsapp-qr.jpeg" alt="Código QR de WhatsApp de Mateo Botero"></div></div>
+  <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-card"><button class="modal-close" id="modalClose" aria-label="Cerrar">×</button><div class="eyebrow">Ficha de proyecto</div><h2 id="modalTitle"></h2><p id="modalText"></p></div></div>
+  <script>
+    const body=document.body, nav=document.getElementById('navLinks'), menu=document.getElementById('menuToggle');
+    menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);});
+    nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>nav.classList.remove('open')));
+    document.getElementById('lightToggle').addEventListener('click',event=>{const off=body.classList.toggle('lights-off');event.currentTarget.setAttribute('aria-pressed',off);});
+    const cursorOrb=document.querySelector('.cursor-orb'), pointer={x:innerWidth/2,y:innerHeight/2}, cursor={x:pointer.x,y:pointer.y};
+    let scrollVelocity=0, lastScroll=scrollY;
+    window.addEventListener('mousemove',event=>{pointer.x=event.clientX;pointer.y=event.clientY;document.documentElement.style.setProperty('--mx',event.clientX+'px');document.documentElement.style.setProperty('--my',event.clientY+'px');},{passive:true});
+    const sections=[...document.querySelectorAll('main section[id]')], railDots=[...document.querySelectorAll('.rail-dot')], navLinks=[...nav.querySelectorAll('a')];
+    const projectTrack=document.querySelector('.projects');
+    [4,5,6,7,8].forEach(number=>projectTrack.insertAdjacentHTML('beforeend',`<article class="project reveal"><div class="project-image"><img src="assets/proyecto-0${number}.jpg" alt="Proyecto ${number}" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><div class="photo-fallback" hidden>Agrega aquí<br><strong>assets/proyecto-0${number}.jpg</strong></div></div><div class="project-body"><div class="project-tag">Proyecto ${String(number).padStart(2,'0')}</div><h3>Título del proyecto</h3><p>Agrega aquí una descripción breve del proyecto.</p><button class="project-open" data-title="Título del proyecto" data-text="Agrega aquí la ficha y los detalles de este proyecto.">Ver ficha →</button></div></article>`));
+    const projectSectionElement=projectTrack.closest('#trabajo');
+    function updateScroll(){
+      const max=document.documentElement.scrollHeight-innerHeight, progress=max?scrollY/max:0, stickyTop=innerWidth<=800?100:132, maxProjectShift=Math.max(0,projectTrack.scrollWidth-projectSectionElement.clientWidth), sectionHead=projectSectionElement.querySelector('.section-head'), trackStart=sectionHead.offsetTop+sectionHead.offsetHeight+parseFloat(getComputedStyle(sectionHead).marginBottom);
+      const sectionPaddingBottom=parseFloat(getComputedStyle(projectSectionElement).paddingBottom);
+      projectSectionElement.style.minHeight=Math.max(trackStart+maxProjectShift+projectTrack.offsetHeight+sectionPaddingBottom,1600)+'px';
+      const start=projectSectionElement.offsetTop+trackStart-stickyTop, projectProgress=Math.min(1,Math.max(0,(scrollY-start)/Math.max(1,maxProjectShift))), projectShift=-maxProjectShift*projectProgress;
+      document.getElementById('progress').style.width=progress*100+'%';document.documentElement.style.setProperty('--scroll',Math.min(scrollY/innerHeight,1));document.documentElement.style.setProperty('--bg-hue',Math.round(320-progress*280));projectTrack.style.setProperty('margin-left',`${projectShift}px`,'important');
+      const current=sections.reduce((active,section)=>scrollY+innerHeight*.35>=section.offsetTop?section.id:active,'inicio');railDots.forEach(dot=>dot.classList.toggle('active',dot.getAttribute('href')==='#'+current));navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')==='#'+current));
+    }
+    window.addEventListener('scroll',()=>{scrollVelocity=Math.min(1,scrollVelocity+Math.min(Math.abs(scrollY-lastScroll)/90,.45));lastScroll=scrollY;updateScroll();},{passive:true}); updateScroll();
+    function animateCursor(){cursor.x+=(pointer.x-cursor.x)*.12;cursor.y+=(pointer.y-cursor.y)*.12;cursorOrb.style.left=cursor.x+'px';cursorOrb.style.top=cursor.y+'px';document.documentElement.style.setProperty('--cursor-scale',(1+scrollVelocity*.9).toFixed(2));scrollVelocity*=.9;requestAnimationFrame(animateCursor);} animateCursor();
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(element=>observer.observe(element));
+    const modal=document.getElementById('projectModal');
+    document.querySelectorAll('.project-open').forEach(button=>button.addEventListener('click',()=>{document.getElementById('modalTitle').textContent=button.dataset.title;document.getElementById('modalText').textContent=button.dataset.text;modal.classList.add('open');document.getElementById('modalClose').focus();}));
+    function closeModal(){modal.classList.remove('open');}
+    document.getElementById('modalClose').addEventListener('click',closeModal);modal.addEventListener('click',event=>{if(event.target===modal)closeModal();});document.addEventListener('keydown',event=>{if(event.key==='Escape')closeModal();});
+    const qrModal=document.getElementById('qrModal');
+    function closeQr(){qrModal.classList.remove('open');}
+    document.getElementById('whatsappButton').addEventListener('click',()=>{qrModal.classList.add('open');document.getElementById('qrClose').focus();});document.getElementById('qrClose').addEventListener('click',closeQr);qrModal.addEventListener('click',event=>{if(event.target===qrModal)closeQr();});document.addEventListener('keydown',event=>{if(event.key==='Escape')closeQr();});
+    document.getElementById('contactForm').addEventListener('submit',event=>{event.preventDefault();const data=new FormData(event.currentTarget);const subject=encodeURIComponent(data.get('asunto')||'Nuevo proyecto');const body=encodeURIComponent(`Hola Mateo, soy ${data.get('nombre')}.\n\n${data.get('mensaje')}\n\nMi correo: ${data.get('email')}`);window.location.href=`mailto:hola@maxcreativos.com?subject=${subject}&body=${body}`;});
+  </script>
+</body>
+</html>
